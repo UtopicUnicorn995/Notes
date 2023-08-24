@@ -1,0 +1,1 @@
+// Function without a return statement is just a procedure
