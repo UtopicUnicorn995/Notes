@@ -6,3 +6,5 @@
 
 // React == DECLARATIVE UI Programming
 // With react, you define the target UI state(s) - not the steps to get there Instead, React will figure out and perform the necessary steps
+
+// in your browser open React.new to open react code sandbox
