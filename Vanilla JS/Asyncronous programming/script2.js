@@ -46,10 +46,49 @@ const promise = new Promise((resolve, reject) => {
   }
 });
 
-promise
-  .then((result) => result + "!")
-  .then((result2) => {
-    throw Error;
-    console.log(result2);
-  })
-  .catch(() => console.log("error!"));
+const promise2 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, 'Hiii')
+})
+
+const promise3 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 1000, 'poop')
+})
+
+const promise4 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 3000, 'es it me you')
+})
+
+// promise
+//   .then((result) => result + "!")
+//   .then((result2) => {
+//     throw Error;
+//     console.log(result2);
+//   })
+//   // catches the error before the catch statement
+//   .catch(() => console.log("error!"));
+
+//Promise.all waits for all the promises to be resolved before being returning any value
+Promise.all([promise, promise2, promise3, promise4]).then(values => {
+  console.log(values)
+})
+
+const urls = [
+  'https://jsonplaceholder.typicode.com/users',
+  'https://jsonplaceholder.typicode.com/posts',
+  'https://jsonplaceholder.typicode.com/albums',
+]
+
+Promise.all(urls.map(url => {
+  return fetch(url).then(resp => resp.json())
+})).then(results => {
+  console.log(results[0])
+  console.log(results[1])
+  console.log(results[3])
+})
+
+// Fetch returns a promise
+// .then -> answering whatever the promise returns -> we get to manipulate data
+// A promise is an object that may produce a single value some time in the future, either resolved or rejected with a reason why it was rejected 
+// states (fulfilled), rejected pending
+// A promise can only suceed once or fail once
+// Reacting to what happened asynchronously 
