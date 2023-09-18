@@ -10,3 +10,30 @@
 
 React
 -> Index.js is the first file that gets loaded
+
+-> Good and best practice to put new component on a different file
+-> A component in react is just a javascript function
+
+
+Naming convention:
+-> Capitalize
+-> Lowercased elements are built-in components/elements while Capitalized are custom components
+
+
+Rule
+-> One root element per component
+-> Wrap all in a div or <></>
+-> use className -> class keyword is a reserved word
+
+Why Components?
+-> Reuseability
+    -> Don't repeat yourself
+-> Separation of concerns
+    -> Don't do too many things in one and the same place (function)
+
+
+Props
+-> We can mak our contents reuseable by using the parameters and a concept called props
+-> We can pass data to the custom component by adding an attribute
+-> We're basically creating our own custom basic HTML element
+-> Data should be recieved from outside 
