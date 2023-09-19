@@ -32,8 +32,13 @@ Why Components?
     -> Don't do too many things in one and the same place (function)
 
 
-Props
+Props(KEY CONCEPT)
 -> We can mak our contents reuseable by using the parameters and a concept called props
 -> We can pass data to the custom component by adding an attribute
 -> We're basically creating our own custom basic HTML element
 -> Data should be recieved from outside 
+-> Alternative of setting props
+-> pass an object to a component
+-> Use object destructuring
+
+-> Good practice to keep component small and readable
