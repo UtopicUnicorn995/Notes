@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+<body>
+   
+    <h1>H</h1>
+    <h2 href="food">Hello from h2</h2>
+    <p>Free ice cream at common grounds</p>
+    <p>Price starts at 25Php</p>
+    <div class="dropBox">
+        click to show content
+        <div class="dropBox-content" >
+            Anyeaong
+        </div>
+    </div>
+    <button id="clickBtn">click</button>
+    <button id="fade">fade</button>
+    <script defer>
+        // $(document).ready(function(){
+            // This is to prevent any jQuery code from running before the document is finished loading(is ready)
+        //})
+        // $(function(){
+            // Shorter syntax for document ready  
+        //})
+        $(document).ready(function(){
+            let count = 5
+            // Basic syntax is: $(selector).action()
+            // $ -> defines/access to element
+            // a (selector) to 'query(or find)' HTML elements
+            // jQuery action() to be performed on the elements
+            $('button').click(function(){
+                // hide method can take 2 optional parameters -> speed / callback
+                $('p').hide(2000)
+                // toggle() method between hiding and showing the element
+                // $('p').toggle(2000)
+            })
+            $('h1').mouseenter(function(){
+                // text action -> changes the text of the selected
+                $('h1').text(count)
+                console.log($('h1').text())
+                // css action -> changes or gives values to the element
+                $('h1').css('font-size', count * 2)
+                count++
+            })
+            // on method attaches one or more event handlers for the selected element
+            $('#clickBtn').on('dblclick', function(){
+                $('p').show(2000)
+                $('h1').text(count)
+                count--
+            })
+            $('#fade').click(function(){
+                $('h2').fadeToggle(2000)
+            })
+            // $('#fade').dblclick(function(){
+            //     $('h2').fadeIn(3000)
+            // })
+            function hell(){
+                console.log('anyeaong sayo')
+            }
+
+            $('.dropBox').click(function(){
+                // slideDown, slideUp, slideToggle method adds sliding animations
+                // changes display:none -> display:block
+                // The method below has a call back which console logs a string -> also has a function hell() which also console logs something else
+                $('.dropBox-content').slideToggle('slow', console.log('Hello world'), hell())
+                // the mouseenter below is an example of a chained action
+            }).click(function(){
+                // Jquery animation uses Queue functionality -> jQuery creates an internal queue with these method calls. Then it runs the animate call ONE by ONE
+                // You can manipulate multiple element
+                // Color animation is not included in the core jQuery library. If you want to animate color, you need to download the color animations plugin from jquery
+                // It is also possible to define possible values. This is done by putting += or -= in front of the value
+                $('.dropBox-content').animate({fontSize: '+=1px', fontWeight: '900', color: 'red'})
+                // Also possible to animate pre-defined values
+                $('h2').animate({fontSize: 'toggle'})
+                console.log($('h2').attr('href'))
+                // jQuery stop() method is used to stop an animation or effect before it is finished.
+                // The stop() method works for all jQuery effect functions, including sliding, fading and custom animations.
+                
+            })
+
+
+
+            // Tips:
+            // By default, all HTML elements have a static position and cannot be removed. To manipulate the position, remember to first set the CSS position of the property to relative, fixed, or absolute;
+            // A callback function is executed after the current effect is 100% finished.
+            // You can chain together actions/methods
+        })
+    </script>
+</body>
+</html>
