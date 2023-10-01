@@ -79,14 +79,25 @@
                 $('.dropBox-content').animate({fontSize: '+=1px', fontWeight: '900', color: 'red'})
                 // Also possible to animate pre-defined values
                 $('h2').animate({fontSize: 'toggle'})
+                //if theres only one parameter in attr it gets the value by the parameter
                 console.log($('h2').attr('href'))
                 // jQuery stop() method is used to stop an animation or effect before it is finished.
                 // The stop() method works for all jQuery effect functions, including sliding, fading and custom animations.
                 
             })
-
-
-
+            $(window).resize(
+                function(){
+                    console.log(count++)
+                    $('h1').text('times window has been resized: ' + count)
+                }
+            )
+            //Adds content such as element or text after the selected element
+            $('#fade').after('<a>link</a>')
+            // Append adds content in the element
+            $('#fade').append(' <b>click this</b>')
+            // if there's 2 parameter in attr it sets the first parameter 
+            $('a').attr('href', 'https://www.w3schools.com/jquery/jquery_dom_add.asp')
+            $('a').attr('target', '_blank')
             // Tips:
             // By default, all HTML elements have a static position and cannot be removed. To manipulate the position, remember to first set the CSS position of the property to relative, fixed, or absolute;
             // A callback function is executed after the current effect is 100% finished.
