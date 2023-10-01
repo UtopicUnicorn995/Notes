@@ -11,6 +11,7 @@
 <body>
    
     <h1>H</h1>
+    <div class="box"></div>
     <h2 href="food">Hello from h2</h2>
     <p>Free ice cream at common grounds</p>
     <p>Price starts at 25Php</p>
@@ -116,8 +117,10 @@
                 $('h1').addClass('important')
 
                 $('h1').text($('h1').css('color'))
+                // not method returns all that does not match the criteria
+                console.log($('*').not('.important'))
             })
-
+                
             $('.dropBox').click(function(){
                 $(this).css('padding', '20px')
                 // width() method gets the width of the element without its padding or margin
@@ -135,8 +138,24 @@
                 console.log($('.dropBox-content').parentsUntil('html'))
                 $('.dropBox-content').parent().css('backgroundColor', 'red')
             })
-            
 
+            // load() method loads data from a server and puts the returned data into the selected element.
+            $('p').last().load('ajax.txt', function(responseTxt, statusTxt, xhr){
+                //
+                console.log('responseTxt: ' + responseTxt + "StatusTxt: " + statusTxt + "xhr: " + xhr)
+            }).css('marginTop', '12px')
+
+            // fetching data
+            $.get('https://randomuser.me/api/', function(data){
+                $('.box').css({
+                'width': '180px',
+                'height': '180px',
+                'backgroundImage': `url('${data['results'][0]['picture']['large']}')`,
+                'backgroundSize': 'cover',
+                'backgroundRepeat': 'no-repeat'
+            })
+            }) 
+            
             // Tips:
             // By default, all HTML elements have a static position and cannot be removed. To manipulate the position, remember to first set the CSS position of the property to relative, fixed, or absolute;
             // A callback function is executed after the current effect is 100% finished.
