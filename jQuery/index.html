@@ -92,12 +92,48 @@
                 }
             )
             //Adds content such as element or text after the selected element
-            $('#fade').after('<a>link</a>')
+            $('#fade').after('<a>link</a>', '<a id="second_link">link 2</a>')
             // Append adds content in the element
-            $('#fade').append(' <b>click this</b>')
+            $('#fade').append(' <b>click this</b>', 
+            //adding in jquery can have 2 parameters -> second append
+            'Additional appdend')
             // if there's 2 parameter in attr it sets the first parameter 
             $('a').attr('href', 'https://www.w3schools.com/jquery/jquery_dom_add.asp')
             $('a').attr('target', '_blank')
+            // use objects for multiple css properties
+            $('a').next().css({'textDecoration': 'none', 'color': 'orange', 'cursor': 'pointer', "fontSize": '20px'})
+            $('#second_link').click(function(){
+                // Removes the element
+                $(this).remove()
+            })
+
+            $('#clickBtn').click(function(){
+                //adds class on h1 everytime clickBtn is clicked
+                // can also remove class(removeClass()), toggle class(toggleClass()) or just get class(css())
+                $('h1').addClass('important')
+
+                $('h1').text($('h1').css('color'))
+            })
+
+            $('.dropBox').click(function(){
+                $(this).css('padding', '20px')
+                // width() method gets the width of the element without its padding or margin
+                // innerWidth() method gets the width of the element with its padding
+                // outerWidth() method gets the width of the element with its padding and border
+                // outerWidth() method gets the width of the element with its padding, border and margin
+                console.log($(this).width())
+                // width(2000) method with a parameter sets the width of the element
+                $(this).width(2000)
+            })
+            $('#clickBtn').click(function(){
+                //parent() method returns the direct parent of the selected element
+                //parents() method returns all ancestor element of the selected element, all the way up to the document's root element(<html>)
+                // parentsUntil() method returns all ancestor element between two given arguments
+                console.log($('.dropBox-content').parentsUntil('html'))
+                $('.dropBox-content').parent().css('backgroundColor', 'red')
+            })
+            
+
             // Tips:
             // By default, all HTML elements have a static position and cannot be removed. To manipulate the position, remember to first set the CSS position of the property to relative, fixed, or absolute;
             // A callback function is executed after the current effect is 100% finished.
