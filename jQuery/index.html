@@ -107,6 +107,9 @@
                 $(this).remove()
             })
 
+            // traversing - filtering the last 'a' element
+            $('a').last().css('border', '1px solid green')
+
             $('#clickBtn').click(function(){
                 //adds class on h1 everytime clickBtn is clicked
                 // can also remove class(removeClass()), toggle class(toggleClass()) or just get class(css())
