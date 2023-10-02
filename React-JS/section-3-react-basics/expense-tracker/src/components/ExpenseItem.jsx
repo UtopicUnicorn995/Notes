@@ -8,7 +8,7 @@ function ExpenseItem(props) {
   //   const expenseDate = new Date(2023, 8, 18);
   //   const expenseTitle = "Restaurant meal";
   //   const expenseAmount = 200;
-
+console.log(props)
  
 
   return (
