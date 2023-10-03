@@ -1,6 +1,6 @@
 import "./ExpenseItem.css";
 import ExpenseDate from './ExpenseDate'
-import Card from './Card'
+import Card from '../UI/Card'
 
 // Export function name convention -> use the name of the file
 // pull object data using object destructuring instead of props.key
