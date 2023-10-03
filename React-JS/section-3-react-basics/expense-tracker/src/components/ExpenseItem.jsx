@@ -1,5 +1,6 @@
 import "./ExpenseItem.css";
 import ExpenseDate from './ExpenseDate'
+import Card from './Card'
 
 // Export function name convention -> use the name of the file
 // pull object data using object destructuring instead of props.key
@@ -12,13 +13,13 @@ console.log(props)
  
 
   return (
-    <div className="expense-item">
+    <Card className="expense-item">
         <ExpenseDate date={props.date}/>
       <div className="expense-item__description">
         <h2>{props.title}</h2>
       </div>
       <div className="expense-item__price">${props.amount}</div>
-    </div>
+    </Card>
   );
 }
 
