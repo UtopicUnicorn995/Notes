@@ -42,3 +42,6 @@ Props(KEY CONCEPT)
 -> Use object destructuring
 
 -> Good practice to keep component small and readable
+
+React(LIFTING STATE UP)
+-> We can only communicate from child to parent or parent to child

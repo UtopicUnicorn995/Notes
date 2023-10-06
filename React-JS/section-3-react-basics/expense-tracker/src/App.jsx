@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 export default function App() {
-  const expenses = [
+  const [expenses, setExpenses] = useState([
     {
       id: "e1",
       title: "Toilet Paper",
@@ -22,12 +22,12 @@ export default function App() {
       amount: 450,
       date: new Date(2021, 5, 12),
     },
-  ];
+  ]);
 
-  const addExpenseHandler = expense => {
-    console.log('In App.js')
-    console.log(expense)
-  }
+  const addExpenseHandler = (expense) => {
+    setExpenses(expenses => [...expenses, expense])
+  };
+  console.log(expenses)
   // How react works under the hood
   // return React.createElement(
   //   "div",
@@ -36,11 +36,10 @@ export default function App() {
   //   React.createElement(Expenses, { items: expenses })
   // );
 
-  
   return (
     <>
-      <NewExpense onAddExpense={addExpenseHandler}/>
-      <Expenses items={expenses}/>
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <Expenses items={expenses} />
     </>
   );
 }
