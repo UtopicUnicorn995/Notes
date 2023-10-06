@@ -1,5 +1,6 @@
 import React from "react";
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 export default function App() {
   const expenses = [
     {
@@ -23,6 +24,10 @@ export default function App() {
     },
   ];
 
+  const addExpenseHandler = expense => {
+    console.log('In App.js')
+    console.log(expense)
+  }
   // How react works under the hood
   // return React.createElement(
   //   "div",
@@ -31,8 +36,10 @@ export default function App() {
   //   React.createElement(Expenses, { items: expenses })
   // );
 
+  
   return (
     <>
+      <NewExpense onAddExpense={addExpenseHandler}/>
       <Expenses items={expenses}/>
     </>
   );
