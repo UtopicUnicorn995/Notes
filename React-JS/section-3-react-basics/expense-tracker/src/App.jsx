@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 export default function App() {
-  const [expenses, setExpenses] = useState([
+  const [DUMMYEXPENSES, SETDUMMYEXPENSES] = useState([
     {
       id: "e1",
       title: "Toilet Paper",
@@ -25,9 +25,9 @@ export default function App() {
   ]);
 
   const addExpenseHandler = (expense) => {
-    setExpenses(expenses => [...expenses, expense])
+    SETDUMMYEXPENSES(prevExpenses => [...prevExpenses, expense])
   };
-  console.log(expenses)
+  console.log(DUMMYEXPENSES)
   // How react works under the hood
   // return React.createElement(
   //   "div",
@@ -39,7 +39,7 @@ export default function App() {
   return (
     <>
       <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses items={expenses} />
+      <Expenses items={DUMMYEXPENSES} />
     </>
   );
 }

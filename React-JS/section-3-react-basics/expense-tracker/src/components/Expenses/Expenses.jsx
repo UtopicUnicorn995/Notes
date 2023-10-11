@@ -4,8 +4,8 @@ import './Expenses.css';
 import Card from '../UI/Card';
 import ExpensesFilter from '../NewExpense/ExpensesFilter';
 
-const Expenses = (props) => {
-  const [items, setItems] = useState(props.items)
+const Expenses = ({items}) => {
+  // const [items, setItems] = useState(props.items)
   // the variable below is not a good practice -> uses the same condition as what's used above
   // const [filterInfoText, setFilterInfoText] = useState()
 
@@ -34,6 +34,8 @@ const Expenses = (props) => {
     {/* ExpenseFilter component has a two way binding -> recieves data from the component and gives data to the component */}
     <ExpensesFilter selected={filteredYear} expenses={filterExpenseHandler}/>
     {items.map(data => {
+      // Key prop we could add to any HTML element -> help react identify unique value
+      // map method can add index in cases your data doesn't have one
      return <ExpenseItem title={data.title} amount={data.amount} date={data.date} key={data.id}/>
     })}
       {/* <ExpenseItem

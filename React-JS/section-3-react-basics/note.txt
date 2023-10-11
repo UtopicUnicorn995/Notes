@@ -55,4 +55,9 @@ Two way binding
 
 
 Stateless component/ Presentational/ Dumb component
+-> More used
 -> Doesn't have any internal state, it's just there to output some data.
+
+Understanding keys
+-> When rendering a list of data
+-> All items are rendered without keys, react reads the item in the array as similar but longer thats why all the item renders

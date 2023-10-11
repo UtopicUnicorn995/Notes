@@ -21,10 +21,10 @@ function ExpenseItem(props) {
   // Call component again when the state changes -> thats how the UI changes via useState
   console.log('title')
 
-  function clickHandler() {
-    // Doesn't change the title immediately, but updates the value
-    setTitle('Fucker')
-  }
+  // function clickHandler() {
+  //   // Doesn't change the title immediately, but updates the value
+  //   setTitle('Fucker')
+  // }
 
   return (
     <Card className="expense-item">
@@ -34,7 +34,7 @@ function ExpenseItem(props) {
       </div>
       <div className="expense-item__price">${props.amount}</div>
       {/* Javascript will immediately execute the function when the button is parsed if it has (), therefore we could just point the function instead of calling it */}
-      <button onClick={clickHandler}>Change title</button>
+      {/* <button onClick={clickHandler}>Change title</button> */}
     </Card>
   );
 }
