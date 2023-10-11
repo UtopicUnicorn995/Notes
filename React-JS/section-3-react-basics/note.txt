@@ -45,3 +45,14 @@ Props(KEY CONCEPT)
 
 React(LIFTING STATE UP)
 -> We can only communicate from child to parent or parent to child
+
+
+Derived state concept
+
+Two way binding
+-> Whenever you are using a two way binding, you are controlling a component
+-> Being controlled by the parent component
+
+
+Stateless component/ Presentational/ Dumb component
+-> Doesn't have any internal state, it's just there to output some data.

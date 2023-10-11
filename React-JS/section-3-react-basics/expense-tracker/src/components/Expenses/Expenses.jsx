@@ -6,6 +6,19 @@ import ExpensesFilter from '../NewExpense/ExpensesFilter';
 
 const Expenses = (props) => {
   const [items, setItems] = useState(props.items)
+  // the variable below is not a good practice -> uses the same condition as what's used above
+  // const [filterInfoText, setFilterInfoText] = useState()
+
+  // The let variable below is a better practice because it updates when the state above is changed
+  // let filteredInfoText = '2019, 2021 & 2022'
+
+  // if(filteredYear === '2019'){
+  //   filteredInfoText = '2020, 2021 & 2022'
+  // }else if(filteredYear === '2021'){
+  //   filteredInfoText = '2019, 2020 & 2022'
+  // }else{
+  //   filteredInfoText = '2019, 2020 & 2021'
+  // }
   
   // gives data to the ExpensesFilter component
   const [filteredYear, setFilteredYear] = useState('2023')
