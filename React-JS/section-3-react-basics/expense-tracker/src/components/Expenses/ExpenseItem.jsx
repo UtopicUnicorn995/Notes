@@ -19,11 +19,11 @@ function ExpenseItem(props) {
   // under thehood we do not change the value by = sign -> managed by react under the hood
   const [title, setTitle] = useState(props.title)
   // Call component again when the state changes -> thats how the UI changes via useState
-  console.log('title')
+ 
 
   // function clickHandler() {
   //   // Doesn't change the title immediately, but updates the value
-  //   setTitle('Fucker')
+  //   setTitle('food')
   // }
 
   return (

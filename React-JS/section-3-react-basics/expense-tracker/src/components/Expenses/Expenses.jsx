@@ -22,18 +22,29 @@ const Expenses = ({items}) => {
   
   // gives data to the ExpensesFilter component
   const [filteredYear, setFilteredYear] = useState('2023')
+  const [filteredExpenses, setFilteredExpenses] = useState(items)
 
   // recieves data from the ExpensesFilter component
   const filterExpenseHandler = (selectedYear) => {
     setFilteredYear(selectedYear)
+    setFilteredExpenses(items.filter(newArr => newArr.date.getFullYear().toString() === selectedYear))
+    // setFilteredExpenses(filteredExpenses.filter((newArr) =>  {
+    //   console.log(selectedYear)
+    //  console.log(newArr.date.getFullYear() == selectedYear)
+    //  return newArr.date.getFullYear() == selectedYear
+    // }))
   }
+
 
   return (
     <>
     <Card className="expenses" >
     {/* ExpenseFilter component has a two way binding -> recieves data from the component and gives data to the component */}
     <ExpensesFilter selected={filteredYear} expenses={filterExpenseHandler}/>
-    {items.map(data => {
+    {
+      filteredExpenses.length == 0 ? <p>No Expenses Found.</p> :
+    
+    filteredExpenses.map(data => {
       // Key prop we could add to any HTML element -> help react identify unique value
       // map method can add index in cases your data doesn't have one
      return <ExpenseItem title={data.title} amount={data.amount} date={data.date} key={data.id}/>

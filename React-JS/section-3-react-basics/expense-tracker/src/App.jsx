@@ -24,6 +24,7 @@ export default function App() {
     },
   ]);
 
+
   const addExpenseHandler = (expense) => {
     SETDUMMYEXPENSES(prevExpenses => [...prevExpenses, expense])
   };
@@ -39,7 +40,7 @@ export default function App() {
   return (
     <>
       <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses items={DUMMYEXPENSES} />
+      <Expenses items={DUMMYEXPENSES}/>
     </>
   );
 }
