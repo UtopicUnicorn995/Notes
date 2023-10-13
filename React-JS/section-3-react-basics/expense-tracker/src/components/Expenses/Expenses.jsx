@@ -3,6 +3,7 @@ import ExpenseItem from './ExpenseItem';
 import './Expenses.css';
 import Card from '../UI/Card';
 import ExpensesFilter from '../NewExpense/ExpensesFilter';
+import ExpensesList from './ExpensesList';
 
 const Expenses = ({items}) => {
   // const [items, setItems] = useState(props.items)
@@ -35,16 +36,6 @@ const Expenses = ({items}) => {
     // }))
   }
 
-  let expenseContent = <p>No expenses found.</p>
-  
-  if(filteredExpenses.length > 0){
-    expenseContent = filteredExpenses.map(data => {
-      // Key prop we could add to any HTML element -> help react identify unique value
-      // map method can add index in cases your data doesn't have one
-     return <ExpenseItem title={data.title} amount={data.amount} date={data.date} key={data.id}/>
-    })
-  }
-
   return (
     <>
     <Card className="expenses" >
@@ -71,6 +62,7 @@ const Expenses = ({items}) => {
         amount={props.items[3].amount}
         date={props.items[3].date}
       /> */}
+      <ExpensesList items={filteredExpenses}/>
     </Card>
     </>
   );
