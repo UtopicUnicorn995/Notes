@@ -61,3 +61,5 @@ Stateless component/ Presentational/ Dumb component
 Understanding keys
 -> When rendering a list of data
 -> All items are rendered without keys, react reads the item in the array as similar but longer thats why all the item renders
+
+-> Can use jsx expression as a value of a variable

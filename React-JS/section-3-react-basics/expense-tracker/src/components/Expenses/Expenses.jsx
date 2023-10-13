@@ -35,20 +35,22 @@ const Expenses = ({items}) => {
     // }))
   }
 
+  let expenseContent = <p>No expenses found.</p>
+  
+  if(filteredExpenses.length > 0){
+    expenseContent = filteredExpenses.map(data => {
+      // Key prop we could add to any HTML element -> help react identify unique value
+      // map method can add index in cases your data doesn't have one
+     return <ExpenseItem title={data.title} amount={data.amount} date={data.date} key={data.id}/>
+    })
+  }
 
   return (
     <>
     <Card className="expenses" >
     {/* ExpenseFilter component has a two way binding -> recieves data from the component and gives data to the component */}
     <ExpensesFilter selected={filteredYear} expenses={filterExpenseHandler}/>
-    {
-      filteredExpenses.length == 0 ? <p>No Expenses Found.</p> :
-    
-    filteredExpenses.map(data => {
-      // Key prop we could add to any HTML element -> help react identify unique value
-      // map method can add index in cases your data doesn't have one
-     return <ExpenseItem title={data.title} amount={data.amount} date={data.date} key={data.id}/>
-    })}
+    {expenseContent}
       {/* <ExpenseItem
         title={props.items[0].title}
         amount={props.items[0].amount}
