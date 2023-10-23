@@ -8,6 +8,11 @@ const urls = [
     'https://jsonplaceholder.typicode.com/albums',
 ]
 
+// Promise can only succeed or fail once
+// Promise is an object that may produce a single value some time in the future either a resolved value or a reason why it's rejected
+// Check mdn discription
+// Promises 3 status -> fulfilled -> pending -> rejected
+
 Promise.all(urls.map(url => {
     return fetch(url).then(response => response.json())
 })).then(results => {
