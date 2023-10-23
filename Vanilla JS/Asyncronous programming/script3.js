@@ -16,7 +16,11 @@ const urls = [
 Promise.all(urls.map(url => {
     return fetch(url).then(response => response.json())
 })).then(results => {
+    throw Error
+    // Throw an error once the throw error runs
     console.log(results[0])
     console.log(results[1])
     console.log(results[2])
-}).catch(() => console.log('error'))
+}).catch((error) => console.log('error', error))
+.finally(() => console.log('extra'))
+
