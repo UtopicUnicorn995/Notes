@@ -27,3 +27,4 @@ async function foo () {
 //If none of the promises resolve -> In that case Promise.any() throws an error!
 
 //One thread per tab in the browser
+// Concurrency and parallelism
