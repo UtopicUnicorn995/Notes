@@ -8,5 +8,7 @@
 
 //AMD is developed for browsers -> created because people doesnt want to use native solutions such as common js -> requireJS helped us use AMD modules
 
+// add type='module'
+// needs to be served from a server
 //Named exports
 //default export -> Can only have default export
