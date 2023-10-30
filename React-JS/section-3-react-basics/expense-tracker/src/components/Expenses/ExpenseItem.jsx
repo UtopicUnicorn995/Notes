@@ -27,6 +27,7 @@ function ExpenseItem(props) {
   // }
 
   return (
+    <li>
     <Card className="expense-item">
       <ExpenseDate date={props.date} />
       <div className="expense-item__description">
@@ -36,6 +37,7 @@ function ExpenseItem(props) {
       {/* Javascript will immediately execute the function when the button is parsed if it has (), therefore we could just point the function instead of calling it */}
       {/* <button onClick={clickHandler}>Change title</button> */}
     </Card>
+    </li>
   );
 }
 

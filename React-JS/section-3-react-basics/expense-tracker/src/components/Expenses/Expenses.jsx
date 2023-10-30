@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import ExpenseItem from './ExpenseItem';
 import './Expenses.css';
 import Card from '../UI/Card';
 import ExpensesFilter from '../NewExpense/ExpensesFilter';
 import ExpensesList from './ExpensesList';
+import ExpensesChart from './ExpensesChart';
 
 const Expenses = ({items}) => {
   // const [items, setItems] = useState(props.items)
@@ -41,7 +41,6 @@ const Expenses = ({items}) => {
     <Card className="expenses" >
     {/* ExpenseFilter component has a two way binding -> recieves data from the component and gives data to the component */}
     <ExpensesFilter selected={filteredYear} expenses={filterExpenseHandler}/>
-    {expenseContent}
       {/* <ExpenseItem
         title={props.items[0].title}
         amount={props.items[0].amount}
@@ -62,6 +61,7 @@ const Expenses = ({items}) => {
         amount={props.items[3].amount}
         date={props.items[3].date}
       /> */}
+      <ExpensesChart expenses={filteredExpenses}/>
       <ExpensesList items={filteredExpenses}/>
     </Card>
     </>
