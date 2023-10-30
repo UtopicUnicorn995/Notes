@@ -1,0 +1,4 @@
+What is a data structure
+- collection of values, algorithms are the process we use to manipulate this datas
+
+- Data structires + Algorithms = Programs
