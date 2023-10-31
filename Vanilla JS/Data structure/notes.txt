@@ -18,3 +18,14 @@ interview tips:
 When Creating functions:
 - Always think of use cases
     - In case it's used with, numbers, undefined, null or something else
+
+
+When to use arrays/ why
+- Fast lookups
+- Fast push/pop
+- Ordered
+
+X Slow inserts
+X slow deletes
+X Fixed size(if using static array)
+
