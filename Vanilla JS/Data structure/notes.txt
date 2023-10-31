@@ -2,3 +2,19 @@ What is a data structure
 - collection of values, algorithms are the process we use to manipulate this datas
 
 - Data structires + Algorithms = Programs
+
+
+Array -> most used data structures
+
+lookup O(1)
+push O(1)
+insert O(n)
+delete 0(n)
+
+
+interview tips:
+- treat strings as arrays
+
+When Creating functions:
+- Always think of use cases
+    - In case it's used with, numbers, undefined, null or something else
