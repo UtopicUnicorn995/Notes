@@ -3,10 +3,63 @@ What is a data structure
 
 - Data structires + Algorithms = Programs
 
-
 Insertion
 Deletion
 Traversal -> see each of the data
 Searching -> check if data exist
 Sorting -> sort data
 Access -> how to access data
+
+Array -> most used data structures
+
+lookup O(1)
+push O(1)
+insert O(n)
+delete 0(n)
+
+
+interview tips:
+- treat strings as arrays
+
+When Creating functions:
+- Always think of use cases
+    - In case it's used with, numbers, undefined, null or something else
+
+
+When to use arrays/ why
+- Fast lookups
+- Fast push/pop
+- Ordered
+
+X Slow inserts
+X slow deletes
+X Fixed size(if using static array)
+
+
+
+Array -> most used data structures
+
+lookup O(1)
+push O(1)
+insert O(n)
+delete 0(n)
+
+
+interview tips:
+- treat strings as arrays
+
+When Creating functions:
+- Always think of use cases
+    - In case it's used with, numbers, undefined, null or something else
+
+
+When to use arrays/ why
+- Fast lookups
+- Fast push/pop
+- Ordered
+
+X Slow inserts
+X slow deletes
+X Fixed size(if using static array)
+
+
