@@ -2,3 +2,11 @@ What is a data structure
 - collection of values, algorithms are the process we use to manipulate this datas
 
 - Data structires + Algorithms = Programs
+
+
+Insertion
+Deletion
+Traversal -> see each of the data
+Searching -> check if data exist
+Sorting -> sort data
+Access -> how to access data
