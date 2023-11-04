@@ -29,3 +29,4 @@ X Slow inserts
 X slow deletes
 X Fixed size(if using static array)
 
+Hash tables are great for quick searching
