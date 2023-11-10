@@ -29,7 +29,7 @@ export default function InputForm(props){
     setUserInput((prev) => {
       return {
         ...prev, 
-        [input]: value
+        [input]: +value
         //Dynamically update value
       }
     })
