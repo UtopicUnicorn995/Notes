@@ -65,3 +65,6 @@ Understanding keys
 -> Can use jsx expression as a value of a variable
 
 NPM styled components
+
+
+Props.children to use whats being wrapped shit
