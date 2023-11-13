@@ -1,18 +1,14 @@
 import Card from "./Card";
 import '../CSS/usersList.css'
 
-const list = ['Max (31 Years old)', "Max (32 Years old)"]
-
-export default function UsersList(){
+export default function UsersList(props){
     return(
-        <Card >
-            <div className="users"> 
+        <Card className='users'> 
             <ul>
-            {list.map(lest => (
-                <li>{lest}</li>
-        ))}
-        </ul>
-        </div>
+            {props.users.map(user => (
+                <li key={user.id}>{user.name} ({user.age} Years old)</li>
+            ))}
+            </ul>
         </Card>
     )
 }
