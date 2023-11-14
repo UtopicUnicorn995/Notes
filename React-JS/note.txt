@@ -1,4 +1,5 @@
 1. React is a Component-Driven User Interfaces
+    JSX -> javascript syntax eXtension
 2. React is a JS library for building user Interfaces
 3. What is exactly a component -> all user Interfaces are made of components
     -> Reusesable building blocks in your user interface -> components are in the end, combinations of HTML, CSS, JS
