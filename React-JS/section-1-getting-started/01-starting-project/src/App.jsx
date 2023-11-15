@@ -1,4 +1,6 @@
+import { useState } from "react";
 import Header from "./componentes/Header.jsx";
+import TabButton from "./componentes/TabButton.jsx";
 import { CORE_CONCEPTS } from "./data.js";
 import CoreConcept from "./componentes/CoreConcept.jsx";
 
@@ -10,6 +12,15 @@ function genRandomInt(max){
 
 
 function App() {
+
+  const [tabContent, setTabContent] = useState('Please click a button')
+
+  function handleSelect(selectedButton){
+    // selectedButton => 'components', ''jsx , 'props'
+    setTabContent(selectedButton)
+  }
+  console.log(tabContent)
+
   return (
     <div>
       <Header genRandomInt={reactDescriptions[genRandomInt(2)]} />
@@ -26,11 +37,15 @@ function App() {
             <CoreConcept {...CORE_CONCEPTS[3]}/> 
           </ul>
         </section>
-        <section>
+        <section id="examples">
           <h2>Examples</h2>
           <menu>
-            
+            <TabButton onSelect={() => handleSelect('components')}>Components</TabButton>
+            <TabButton onSelect={() => handleSelect('jsx')}>JSX</TabButton>
+            <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
+            <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
+            {tabContent}
         </section>
       </main>
     </div>
