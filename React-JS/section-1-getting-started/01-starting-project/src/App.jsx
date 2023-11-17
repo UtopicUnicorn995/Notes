@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Header from "./componentes/Header.jsx";
 import TabButton from "./componentes/TabButton.jsx";
-import { CORE_CONCEPTS } from "./data.js";
+import { CORE_CONCEPTS, EXAMPLES } from "./data.js";
 import CoreConcept from "./componentes/CoreConcept.jsx";
 
 const reactDescriptions = ['Fundamental', 'Crucial', 'Core']
@@ -13,7 +13,7 @@ function genRandomInt(max){
 
 function App() {
 
-  const [tabContent, setTabContent] = useState('Please click a button')
+  const [tabContent, setTabContent] = useState()
 
   function handleSelect(selectedButton){
     // selectedButton => 'components', ''jsx , 'props'
@@ -45,7 +45,22 @@ function App() {
             <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
-            {tabContent}
+            
+              {!tabContent ? <p>Please select a topic.</p> : 
+              <div id="tab-content">
+                 <h3>
+                {EXAMPLES[tabContent].title}
+              </h3>
+              <p>
+              {EXAMPLES[tabContent].description}
+              </p>
+              <pre>
+                <code>
+                {EXAMPLES[tabContent].code}
+                </code>
+              </pre>
+            </div>
+              }
         </section>
       </main>
     </div>
