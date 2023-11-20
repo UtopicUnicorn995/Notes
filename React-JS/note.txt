@@ -69,3 +69,18 @@ NPM styled components
 
 
 Props.children to use whats being wrapped shit
+-> recieves whats between the component
+
+event prop can be used at any elements
+passing function as values to props
+
+onClick, onSelect
+
+react hooks
+    -> useState, useEffect, etc.
+    -> Only call hooks inside of component functions
+    -> Rules of hooks -> call hook function inside of a nested function
+    -> Only call hooks on the top level
+
+useState
+    -> re-evaluate a component and it's child components when data is changed.
