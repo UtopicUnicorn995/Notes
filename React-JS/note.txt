@@ -84,3 +84,11 @@ react hooks
 
 useState
     -> re-evaluate a component and it's child components when data is changed.
+
+<></> or <Fragment></Fragment> -> Fragments ->
+
+props on a custom component are not automatically used on that component -> has to be sent on the component
+
+forwarding props approach
+
+...name you want to spread to the section you want
