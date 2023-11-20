@@ -28,22 +28,22 @@ function App() {
         <section id="core-concepts">
         <h2>Core Concepts</h2>
           <ul>
-            {/* {CORE_CONCEPTS.map(core_concept => (
-             <CoreConcept title={core_concept.title} description={core_concept.description} image={core_concept.image}/> 
-            ))} */}
-            <CoreConcept {...CORE_CONCEPTS[0]}/> 
+            {CORE_CONCEPTS.map(core_concept => (
+             <CoreConcept key={core_concept.title} {...core_concept}/> 
+            ))}
+            {/* <CoreConcept {...CORE_CONCEPTS[0]}/> 
             <CoreConcept {...CORE_CONCEPTS[1]}/> 
             <CoreConcept {...CORE_CONCEPTS[2]}/> 
-            <CoreConcept {...CORE_CONCEPTS[3]}/> 
+            <CoreConcept {...CORE_CONCEPTS[3]}/>  */}
           </ul>
         </section>
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton onSelect={() => handleSelect('components')}>Components</TabButton>
-            <TabButton onSelect={() => handleSelect('jsx')}>JSX</TabButton>
-            <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
-            <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
+            {CORE_CONCEPTS.map(core_concept => (
+              <TabButton key={core_concept.title} isSelected={tabContent === core_concept.title.toLowerCase()} onSelect={() => handleSelect(core_concept.title.toLowerCase())}>{core_concept.title}</TabButton>
+            ))}
+
           </menu>
             
               {!tabContent ? <p>Please select a topic.</p> : 
