@@ -92,3 +92,7 @@ props on a custom component are not automatically used on that component -> has 
 forwarding props approach
 
 ...name you want to spread to the section you want
+
+Working with jsx slots
+
+small caps custom component doesn't work -> use uppercased
