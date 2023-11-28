@@ -92,3 +92,5 @@ props on a custom component are not automatically used on that component -> has 
 forwarding props approach
 
 ...name you want to spread to the section you want
+
+pass componenet identifyer as a prop
