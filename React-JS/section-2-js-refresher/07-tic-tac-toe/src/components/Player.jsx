@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-export default function Player({initialName, symbol, isActive}){
+export default function Player({initialName, symbol, isActive, onChangeName}){
     const [playerName, setPlayerName] = useState(initialName)
     const [isEditing, setIsEditing] = useState(false)
 
@@ -10,6 +10,10 @@ export default function Player({initialName, symbol, isActive}){
         // Inverts the value
         // When updatting the state based on the previous state, pass a function to your state
         // Two way binding
+        if(isEditing){
+            onChangeName(symbol, playerName)
+        }
+        console.log(isEditing)
     }
 
     const handleChange = (event) => {

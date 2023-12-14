@@ -97,3 +97,5 @@ pass componenet identifyer as a prop
 Working with jsx slots
 
 small caps custom component doesn't work -> use uppercased
+
+When not to lift states
