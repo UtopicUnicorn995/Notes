@@ -99,3 +99,9 @@ Working with jsx slots
 small caps custom component doesn't work -> use uppercased
 
 When not to lift states
+
+external css are not scoped to the component it's called
+    css modules are scoped
+    example Header.module.css
+
+    styled components css package
