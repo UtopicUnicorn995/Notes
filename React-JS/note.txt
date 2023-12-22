@@ -105,3 +105,7 @@ external css are not scoped to the component it's called
     example Header.module.css
 
     styled components css package
+
+
+think logically
+    initially everything works fine

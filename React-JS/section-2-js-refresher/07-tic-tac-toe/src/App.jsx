@@ -34,8 +34,6 @@ function derivedGameBoard(gameTurns){
   for(const turn of gameTurns){
     const {square, player} = turn
     const {row, col} = square
-    console.log(turn)
-    console.log(row, col)
 
     gameBoard[row][col] = player
   }
@@ -63,7 +61,6 @@ function derivedWinner(gameBoard, players){
 function App() {
   const [players, setPlayers] = useState(PLAYERS)
   const [gameTurns, setGameTurns] = useState([])
-  console.log(gameTurns)
 
   const activePlayer = derivedActivePlayer(gameTurns)
   const gameBoard = derivedGameBoard(gameTurns)
@@ -81,6 +78,8 @@ function App() {
     })
 
   }
+
+  console.log('food')
 
   function gameRematch(){
     setGameTurns([])
