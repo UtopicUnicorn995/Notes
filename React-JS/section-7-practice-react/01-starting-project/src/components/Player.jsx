@@ -13,7 +13,7 @@ export default function Player() {
   }
 
   // console.log(playerName.current.click())
-  console.log( typeof(enteredPlayerName))
+  // console.log( typeof(enteredPlayerName))
 
   return (
     <section id="player">
