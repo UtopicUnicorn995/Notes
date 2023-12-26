@@ -1,0 +1,9 @@
+Wordpress theme folder is located in wp-content/themes folder
+    -> create new theme by creating a new folder
+    -> inside the folder add index.php and style.css
+    -> style.css is the needed name of the css file
+    -> Start with creating a comment
+        -> Inside the comment is the Theme Name: your choice of theme name, Author, and Version
+    -> Name the theme thumbnail screenshot.png
+
+<?php bloginfo() -> wordpress built-in function?>
