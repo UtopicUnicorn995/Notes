@@ -109,3 +109,8 @@ external css are not scoped to the component it's called
 
 think logically
     initially everything works fine
+
+
+Portals
+    what is a portal
+    teleports an html code in a certain part of the html
