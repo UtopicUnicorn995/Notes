@@ -5,15 +5,40 @@ import NoProjectSelected from "./Components/NoProjectSelected";
 import SelectedProject from "./Components/SelectedProject";
 
 function App() {
+  // const [tasks, setTasks] = useState([])
   const [projectsState, setProjectsState] = useState({
     selectedProjectId: undefined,
     projects: [],
     tasks: [],
   });
 
-  function handleAddTask() {}
+  console.log(projectsState)
 
-  function handleDeleteTask(){}
+  function handleAddTask(newTask) {
+        setProjectsState((prevState) => {
+        const taskId = Math.random()
+        const newTasks = {
+          text: newTask,
+          projectId: prevState.selectedProjectId,
+          id: taskId
+        }
+        return {
+          ...prevState,
+          tasks: [newTasks, ...prevState.tasks],
+        };
+      });
+  }
+
+  function handleDeleteTask(selectedTaskId){
+    setProjectsState((prevState) => {
+      return {
+        ...prevState,
+        tasks: prevState.tasks.filter(
+          (task) => task.id !== selectedTaskId
+        ),
+      };
+    });
+  }
 
   function handleSelectProject(id) {
     setProjectsState((prevState) => {
@@ -81,6 +106,7 @@ function App() {
       project={selectedProject}
       onAddTask={handleAddTask}
       onDeleteTask={handleDeleteTask}
+      tasks={projectsState['tasks']}
     />
   );
 
@@ -99,6 +125,7 @@ function App() {
           onSelectProject={handleSelectProject}
           onStartAddProject={handleStartAddProject}
           projects={projectsState.projects}
+          selectedProjectId={projectsState.selectedProjectId}
         />
         {content}
       </main>
