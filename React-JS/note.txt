@@ -114,3 +114,17 @@ think logically
 Portals
     what is a portal
     teleports an html code in a certain part of the html
+
+
+Component composition -> solution for prop drilling
+    Instead of prop drilling -> use a component directly at the parent and give out stuff such as functions, props, etc. instead of sending it to a component and another component
+
+Context API -> another solution for prop drilling
+    have all components be wrapped in a content with the data needed
+    - context are sometimes stored in a store folder - up to you
+    -> can share a function or a value without prop drilling
+    another way of accessing or reading a context
+        -> useContext is the proper way
+        -> any context can also have Consumer instead of Provider
+            -> needs a special child or content which could be passed
+            -> function is passed as a child
