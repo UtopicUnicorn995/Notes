@@ -128,3 +128,6 @@ Context API -> another solution for prop drilling
         -> any context can also have Consumer instead of Provider
             -> needs a special child or content which could be passed
             -> function is passed as a child
+
+Consuming context -> what happens when context value changes?
+    component gets reexecuted when context value changes
