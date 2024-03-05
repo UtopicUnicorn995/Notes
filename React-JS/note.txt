@@ -131,3 +131,7 @@ Context API -> another solution for prop drilling
 
 Consuming context -> what happens when context value changes?
     component gets reexecuted when context value changes
+
+what is a reducer
+    a function that reduce one or more complex value to a simpler one
+    ex. [5, 10, 100] -> 115

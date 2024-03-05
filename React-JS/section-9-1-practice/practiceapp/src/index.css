@@ -17,44 +17,47 @@ body {
 #app {
   margin: 2rem auto;
   padding: 1rem;
-  width: 90%;
-  max-width: 50rem;
+  max-width: 30rem;
   text-align: center;
   border-radius: 6px;
+  background: linear-gradient(#341a89, #3a1967);
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-}
-
-#app.light {
-  background: linear-gradient(#e5d9f1, #e5d9f1);
-  color: #180d27;
-}
-
-#app.dark {
-  background: linear-gradient(#341f4f, #2a0c52);
-  color: #e5d9f1;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
 }
 
 h1 {
   letter-spacing: 0.15rem;
   font-family: 'Lato', sans-serif;
   text-transform: uppercase;
-  font-size: 1.5rem;
-  margin: 0;
+  margin-bottom: 2.5rem;
 }
 
-header button {
-  background: none;
+#actions {
+  max-width: 24rem;
+  margin: 1rem auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+#actions button {
+  width: 7rem;
+  text-align: center;
+  border-radius: 6px;
   border: none;
-  color: inherit;
+  padding: 0.5rem 0;
+  background: linear-gradient(#531a89, #4c1f8c);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  color: #e5d9f1;
+  font-weight: bold;
+  text-transform: uppercase;
   cursor: pointer;
-  font-size: 1rem;
-  margin: 0 0.5rem;
-  padding: 0.25rem 0.5rem;
+}
+
+#actions button:hover {
+  background: linear-gradient(#7e1a89, #7f1f8c);
+}
+
+#counter {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 0;
 }
