@@ -135,3 +135,6 @@ Consuming context -> what happens when context value changes?
 what is a reducer
     a function that reduce one or more complex value to a simpler one
     ex. [5, 10, 100] -> 115
+
+What are side effects?
+    Tasks that don't impact the current component render cycle
