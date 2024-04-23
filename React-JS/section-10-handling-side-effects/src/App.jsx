@@ -7,38 +7,54 @@ import Modal from "./components/Modal.jsx";
 import DeleteConfirmation from "./components/DeleteConfirmation.jsx";
 import logoImg from "./assets/logo.png";
 
+  //useEffect(() => {
+    const storedIds = JSON.parse(localStorage.getItem('selectedPlaces')) || []
+    const storedPlaces = storedIds.map((id) => 
+      AVAILABLE_PLACES.find((place) => place.id === id)
+    )
+
+  //  setPickedPlaces(storedPlaces)
+  //}, [])
+  // Redundant useEffect example -> why?, because we can do it without using useEffect -> could be put out of the app so that It could not execute over and over per state change
+
+
 function App() {
-  const modal = useRef();
+  // const modal = useRef();
+  const [modalIsOpen, setModalIsOpen ] = useState(false)
   const selectedPlace = useRef();
-  const [pickedPlaces, setPickedPlaces] = useState([]);
-  const [availablePlaces, setAvailablePlaces] = useState([])
+  const [availablePlaces, setAvailablePlaces] = useState([]);
+  const [pickedPlaces, setPickedPlaces] = useState(storedPlaces);
 
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      const sortedPlaces = sortPlacesByDistance(
-        AVAILABLE_PLACES,
-        position.coords.latitude,
-        position.coords.longitude
-      );
 
-      setAvailablePlaces(sortedPlaces)
-    })
-  }, [
-    //no dependecies, does not reexecuted again
-    //has dependencies renders again if the dependencies change
-  ])
+  useEffect(
+    () => {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const sortedPlaces = sortPlacesByDistance(
+          AVAILABLE_PLACES,
+          position.coords.latitude,
+          position.coords.longitude
+        );
+
+        setAvailablePlaces(sortedPlaces);
+      });
+    },
+    [
+      //no dependecies, does not reexecuted again
+      //has dependencies -> renders again if the dependencies change
+    ]
+  );
   //Object provider by the browser, not react
   //Side effect
 
-  console.log(availablePlaces)
+  console.log(availablePlaces);
 
   function handleStartRemovePlace(id) {
-    modal.current.open();
+    setModalIsOpen(true)
     selectedPlace.current = id;
   }
 
   function handleStopRemovePlace() {
-    modal.current.close();
+    setModalIsOpen(false)
   }
 
   function handleSelectPlace(id) {
@@ -49,22 +65,37 @@ function App() {
       const place = AVAILABLE_PLACES.find((place) => place.id === id);
       return [place, ...prevPickedPlaces];
     });
+
+    const storedIds = JSON.parse(localStorage.getItem("selectedPlaces")) || [];
+    console.log(storedIds)
+    if (storedIds.indexOf(id) === -1) {
+      localStorage.setItem(
+        "selectedPlaces",
+        JSON.stringify([id, ...storedIds])
+      );
+    }
   }
 
   function handleRemovePlace() {
     setPickedPlaces((prevPickedPlaces) =>
       prevPickedPlaces.filter((place) => place.id !== selectedPlace.current)
     );
-    modal.current.close();
+    setModalIsOpen(false)
+
+    const storedIds = JSON.parse(localStorage.getItem('selectedPlaces')) || []
+    localStorage.setItem('selectedPlaces', JSON.stringify(storedIds.filter((id) => id !== selectedPlace.current)))
   }
 
   return (
     <>
-      <Modal ref={modal}>
-        <DeleteConfirmation
-          onCancel={handleStopRemovePlace}
-          onConfirm={handleRemovePlace}
-        />
+      <Modal open={modalIsOpen} onClose={handleStopRemovePlace}>
+        {modalIsOpen && (
+          <DeleteConfirmation
+            onCancel={handleStopRemovePlace}
+            onConfirm={handleRemovePlace}
+          />
+        )}
+       
       </Modal>
 
       <header>
@@ -85,7 +116,7 @@ function App() {
         <Places
           title="Available Places"
           places={availablePlaces}
-          fallbackText='Sortin places by distance...'
+          fallbackText="Sortin places by distance..."
           onSelectPlace={handleSelectPlace}
         />
       </main>
