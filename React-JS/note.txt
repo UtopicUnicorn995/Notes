@@ -138,3 +138,5 @@ what is a reducer
 
 What are side effects?
     Tasks that don't impact the current component render cycle
+
+useCallback hook
