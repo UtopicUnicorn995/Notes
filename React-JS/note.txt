@@ -140,3 +140,8 @@ What are side effects?
     Tasks that don't impact the current component render cycle
 
 useCallback hook
+
+
+Dont overuse memo()
+    all nested component will not run
+    - not the only way to prevent rerendering
