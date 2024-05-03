@@ -1,4 +1,4 @@
-import { useState, memo } from "react";
+import { useState, memo, useCallback, useMemo } from "react";
 
 import IconButton from "../UI/IconButton.jsx";
 import MinusIcon from "../UI/Icons/MinusIcon.jsx";
@@ -23,20 +23,21 @@ function isPrime(number) {
   return true;
 }
 
-const Counter = memo(function Counter({ initialCount }) {
+export default function Counter({ initialCount }) {
+  //const Counter = memo(function Counter({ initialCount }) {
   // Just because the parent component is rendered -> as long as the component's prop value does not change it does not render again due to memo
   log("<Counter /> rendered", 1);
-  const initialCountIsPrime = isPrime(initialCount);
+  const initialCountIsPrime =  useMemo(() => isPrime(initialCount), [initialCount]);
 
   const [counter, setCounter] = useState(initialCount);
 
-  function handleDecrement() {
+  const handleDecrement = useCallback(function handleDecrement() {
     setCounter((prevCounter) => prevCounter - 1);
-  }
+  }, [])
 
-  function handleIncrement() {
+  const handleIncrement = useCallback(function handleIncrement() {
     setCounter((prevCounter) => prevCounter + 1);
-  }
+  }, [])
 
   return (
     <section className="counter">
@@ -55,6 +56,4 @@ const Counter = memo(function Counter({ initialCount }) {
       </p>
     </section>
   );
-});
-
-export default Counter;
+}
