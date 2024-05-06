@@ -148,3 +148,6 @@ Dont overuse memo()
     
 
 useCallback is used in conjunction to memo
+
+millionjs package
+makes react 70% faster
