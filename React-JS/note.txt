@@ -151,3 +151,14 @@ useCallback is used in conjunction to memo
 
 millionjs package
 makes react 70% faster
+
+Class base components
+    React hooks does not work in class based react component
+    class and functional can be used or mixed and match with eachother
+    in Class based components -> states are always objects
+
+    ComponentDidMount() -> useEffect(..., []) -> Called once a component is mounted -> evaluted and rendered by react
+    ComponentDidUpdate() -> Called once a comnent updated -> re-evaliated and re-rendered by react -> useEffect(..., [some value])
+    componentWillMount() called righ before component is unmounted -> right before removed from DOM -> useEffect(() => {
+        return () => { ...}
+    }, [])
