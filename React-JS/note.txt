@@ -162,3 +162,14 @@ Class base components
     componentWillMount() called righ before component is unmounted -> right before removed from DOM -> useEffect(() => {
         return () => { ...}
     }, [])
+
+// How not to send HTTP Request(And why it's wrong)
+
+using .then is acceptable but using async is prefered
+    has shorter codes
+
+
+When you want to test your page on a slownetwork
+    network tab -> throttling -> select slow 3G
+
+HTTP errors
