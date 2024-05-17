@@ -1,57 +1,64 @@
 import { useState, useEffect } from "react";
 
 import Places from "./Places.jsx";
-import Error from "./Error.jsx"
+import Error from "./Error.jsx";
+import { sortPlacesByDistance } from "../loc.js";
+import {fetchAvailablePlaces} from "../http.js"
 
 export default function AvailablePlaces({ onSelectPlace }) {
-  const [isFetching, setIsFetching] = useState(false) // Display a loading state depending on the connection
+  const [isFetching, setIsFetching] = useState(false); // Display a loading state depending on the connection
   const [availablePlaces, setAvailablePlaces] = useState([]);
   const [error, setError] = useState();
 
   useEffect(() => {
-  //   fetch("http://localhost:3000/places")
-  //   .then((response) => {
-  //     return response.json();
-  //   })
-  //   .then((resData) => {
-  //     setAvailablePlaces(resData.places);
-  //   });
-    async function fetchPlaces(){
-      setIsFetching(true)
-      try{
-        const response = await fetch("http://localhost:3000/placess")
-        const resData = await response.json()
+    //   fetch("http://localhost:3000/places")
+    //   .then((response) => {
+    //     return response.json();
+    //   })
+    //   .then((resData) => {
+    //     setAvailablePlaces(resData.places);
+    //   });
+    async function fetchPlaces() {
+      setIsFetching(true);
+      try {
+        const places = await fetchAvailablePlaces()
 
-        if(!response.ok){
-          throw new Error("Failed to fetch places")
-        }
-
-        setAvailablePlaces(resData.places) // SetAvailablePlaces is inside try but after !response.ok so that this code block runs if there are no errors
-      } catch (error){
+        navigator.geolocation.getCurrentPosition((position) => {
+          const sortedPlaces = sortPlacesByDistance(
+            places,
+            position.coords.latitude,
+            position.coords.longitude
+          );
+          setAvailablePlaces(sortedPlaces); // SetAvailablePlaces is inside try but after !response.ok so that this code block runs if there are no errors
+          setIsFetching(false);
+        }); // gets the position of the user -> does not activate instantly -> Takes a function
+      } catch (error) {
         // Handling errors in the catch
-        setError({message: error.message || "Could not find the places, please try again later"})
+        setError({
+          message:
+            error.message ||
+            "Could not find the places, please try again later",
+        });
 
+        setIsFetching(false);
       }
-
-
-      setIsFetching(false)
     }
 
-    fetchPlaces()
+    fetchPlaces();
   }, []);
 
-  if(error){
-    return <Error title="An error occured!" message={error.message}/>
+  if (error) {
+    return <Error title="An error occured!" message={error.message} />;
   }
 
-  console.log(availablePlaces)
+  console.log(availablePlaces);
 
   return (
     <Places
       title="Available Places"
       places={availablePlaces}
       fallbackText="No places available."
-      loadingText = "Fetching place data..."
+      loadingText="Fetching place data..."
       isLoading={isFetching}
       onSelectPlace={onSelectPlace}
     />
