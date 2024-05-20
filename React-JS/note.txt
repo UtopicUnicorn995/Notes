@@ -186,4 +186,22 @@ hooks Rule
     --React hooks must not be called in nested code statement(e.g Inside of if-statements)
 
 convention in react projects
-    --functions that uses "Use" are treated as hooks
+    --functions that uses "Use" are treated as hooks'
+
+
+FORMS
+    --collection of input fields
+
+What is difficult about FORMS
+    --Submission
+    --Extracting values
+        --ref
+        --state
+        --formData
+    --Validate data
+        --validate every keystroke
+        --Whenever the user is done inputing values
+        --Form submission
+    
+    htmlfor === for:
+    
