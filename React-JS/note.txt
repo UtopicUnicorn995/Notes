@@ -204,4 +204,15 @@ What is difficult about FORMS
         --Form submission
     
     htmlfor === for:
-    
+
+Button type:
+    --submit - default
+    --button - does not submit the form
+
+ways to handle inputs
+    useState
+    useRef
+        --has less codes
+        --problem when reseting value
+    nativestuff
+        --FormData

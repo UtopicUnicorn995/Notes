@@ -1,16 +1,23 @@
-import { useRef } from "react";
+import { useState } from "react";
 
 export default function Login() {
+  // const [enteredEmail, setEnteredEmail] = useState("");
+  // const [enteredPassword, setEnteredPassword] = useState("");
+  const [enteredValues, setEnteredValues] = useState({
+    email: "",
+    password: ""
+  })
 
-  const email = useRef()
-  const password = useRef()
+  console.log(enteredValues)
 
   function handleSubmit(event) {
     event.preventDefault();
+  }
 
-    const enteredEmail = email.current.value
-    console.log(enteredEmail)
-    console.log(password.current.value)
+  function handleInputChange(identifier, value) {
+    setEnteredValues(prevValues => ({
+      ...prevValues, [identifier]: value
+    }));
   }
 
 
@@ -25,7 +32,8 @@ export default function Login() {
             id="email"
             type="email"
             name="email"
-            ref={email}
+            onChange={(e) => handleInputChange('email', e.target.value)}
+            value={enteredValues['email']}
           />
         </div>
 
@@ -35,7 +43,8 @@ export default function Login() {
             id="password"
             type="password"
             name="password"
-            ref={password}
+            onChange={(e) => handleInputChange('password', e.target.value)}
+            value={enteredValues['password']}
           />
         </div>
       </div>
