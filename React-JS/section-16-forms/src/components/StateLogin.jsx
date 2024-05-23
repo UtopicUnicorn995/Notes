@@ -8,8 +8,13 @@ export default function Login() {
     password: "",
   });
 
+  const [didFocus, setDidFocus] = useState({
+    email: false,
+    password: false
+  })
+
   const emailIsInvalid =
-    enteredValues.email !== "" && !enteredValues.email.includes("@");
+    didFocus.email && !enteredValues.email.includes("@")
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -23,7 +28,10 @@ export default function Login() {
   }
 
   function handleEmailBlur(identifier){
-    
+    setDidFocus(prevState => ({
+      ...prevState,
+      [identifier]: true
+    }))
   }
 
   return (
@@ -37,7 +45,7 @@ export default function Login() {
             id="email"
             type="email"
             name="email"
-            onBlur={handleEmailBlur} //Activates whenever the input loses focus
+            onBlur={() => handleEmailBlur('email')} //Activates whenever the input loses focus
             onChange={(e) => handleInputChange("email", e.target.value)}
             value={enteredValues["email"]}
           />
