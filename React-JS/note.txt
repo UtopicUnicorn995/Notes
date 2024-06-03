@@ -217,4 +217,4 @@ ways to handle inputs
     nativestuff
         --FormData
     Mix native stuff and functions 
-    
+    We can outsource a validation logic
