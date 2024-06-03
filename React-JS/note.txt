@@ -216,3 +216,5 @@ ways to handle inputs
         --problem when reseting value
     nativestuff
         --FormData
+    Mix native stuff and functions 
+    
